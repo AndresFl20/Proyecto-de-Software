@@ -18,12 +18,14 @@ En muchas instituciones educativas, la gestión de actividades académicas se re
 El problema se presenta en el sector educativo, especialmente en instituciones que no cuentan con plataformas digitales accesibles para la gestión académica.  
 
 ### 👥 Población afectada  
-- Estudiantes  
+- Estudiantes: Requieren una mejor organización de las actividades académicas y un acceso rápido y eficiente a la información.
 - Docentes  
-- Instituciones educativas  
+- Docentes: Necesitan una herramienta que les permita gestionar tareas, realizar seguimiento y proporcionar retroalimentación de forma eficiente.
 
 ### 💡 Justificación de la solución tecnológica  
-Una plataforma web permitirá centralizar los procesos académicos, mejorar la comunicación y optimizar la gestión de actividades, contribuyendo a una educación más eficiente.  
+La solución tecnológica EduTech permite optimizar la gestión de actividades académicas mediante la digitalización de procesos. Una plataforma web centralizada ayuda a el acceso de la información, mejorando la comunicación entre estudiantes y docentes reduciendo arroces asociados a la desorganización.
+
+Ademas, el uso de herramientas digitales contribuye a aumentar la eficiencia en el proceso educativo, promoviendo entornos de aprendizaje mas organizados, accesibles y acordes a las necesidades actuales.  
 
 ---
 
