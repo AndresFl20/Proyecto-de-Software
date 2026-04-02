@@ -23,7 +23,7 @@ El problema se presenta en el sector educativo, especialmente en instituciones q
 - Instituciones educativas  
 
 ### 💡 Justificación de la solución tecnológica  
-Una plataforma web permitirá centralizar los procesos académicos, mejorar la comunicación y facilitar la gestión de actividades, contribuyendo a una educación más organizada y eficiente.  
+Una plataforma web permitirá centralizar los procesos académicos, mejorar la comunicación y optimizar la gestión de actividades, contribuyendo a una educación más eficiente.  
 
 ---
 
@@ -33,10 +33,10 @@ Una plataforma web permitirá centralizar los procesos académicos, mejorar la c
 Desarrollar una plataforma web que permita gestionar actividades académicas y facilitar la interacción entre estudiantes y docentes.  
 
 ### ✅ Objetivos Específicos  
-- Implementar un sistema de registro de usuarios  
+- Implementar registro e inicio de sesión de usuarios  
 - Permitir la publicación de actividades académicas  
 - Facilitar la entrega digital de tareas  
-- Implementar un sistema de retroalimentación docente  
+- Implementar retroalimentación docente  
 - Mejorar la organización académica  
 
 ---
@@ -49,83 +49,106 @@ El sistema permitirá:
 - Publicación de actividades  
 - Entrega de tareas  
 - Retroalimentación  
+- Consulta de estado de tareas  
 
 ### 🚫 Fuera de alcance  
-- Sistemas de pago  
 - Aplicación móvil  
+- Sistemas de pago  
 - Integraciones externas complejas  
 
 ### 🎁 Beneficios esperados  
 - Organización académica eficiente  
-- Mejor comunicación  
+- Comunicación fluida  
 - Acceso centralizado a la información  
 
 ---
 
 ## 🔄 4. Metodología de Desarrollo (Scrum)  
 
-### 📌 Descripción general  
-Scrum es una metodología ágil que organiza el desarrollo en ciclos iterativos llamados Sprints.  
+### 📌 Descripción  
+Scrum es una metodología ágil basada en Sprints que permite el desarrollo iterativo e incremental del software.  
 
-### 👨‍💻 Roles del equipo  
+### 👨‍💻 Roles  
 - Product Owner  
 - Scrum Master  
 - Equipo de desarrollo  
 
-### 🔁 Organización del trabajo  
-- Sprints de 1 a 2 semanas  
+### 🔁 Organización  
+- Sprints de 1–2 semanas  
 - Planificación, revisión y retrospectiva  
 
 ### 🛠️ Herramientas  
 - GitHub  
 - Git  
-- Trello / Jira (opcional)  
+- Jira  
 
 ---
 
 ## 📋 5. Requisitos del Sistema  
 
 ### ✔️ Requisitos Funcionales  
-- Registro e inicio de sesión  
-- Publicación de actividades  
-- Entrega de tareas  
-- Retroalimentación  
 
-### ⚙️ Requisitos No Funcionales  
-- Seguridad: autenticación de usuarios  
-- Rendimiento: tiempos de respuesta adecuados  
-- Disponibilidad: acceso continuo  
-- Usabilidad: interfaz amigable  
-- Escalabilidad: capacidad de crecimiento  
+| Código  | Nombre                        | Descripción                                                                 | Usuarios            | Prioridad |
+|--------|------------------------------|----------------------------------------------------------------------------|---------------------|----------|
+| RQF001 | Autenticación y autorización | Permite inicio de sesión con roles (estudiante, docente). | Todos | Alta |
+| RQF002 | Registro de usuarios         | Registro de nuevos usuarios con datos básicos. | Estudiante / Docente | Alta |
+| RQF003 | Gestión de perfiles          | Visualizar y actualizar información personal. | Todos | Media |
+| RQF004 | Publicación de actividades   | Crear, editar y eliminar actividades. | Docente | Alta |
+| RQF005 | Visualización de actividades | Consultar actividades asignadas. | Estudiante | Alta |
+| RQF006 | Entrega de tareas            | Subir tareas en formato digital. | Estudiante | Alta |
+| RQF007 | Gestión de entregas          | Visualizar tareas entregadas. | Docente | Alta |
+| RQF008 | Retroalimentación            | Calificar y comentar tareas. | Docente | Alta |
+| RQF009 | Notificaciones              | Avisos de actividades y retroalimentación. | Estudiante | Media |
+| RQF010 | Estado de tareas            | Consultar estado de tareas. | Estudiante | Media |
 
 ---
 
-## 👥 6. Stakeholders y Usuarios Finales  
+### ⚙️ Requisitos No Funcionales  
+
+| ID      | Categoría              | Descripción                                                                 | Prioridad |
+|--------|----------------------|----------------------------------------------------------------------------|----------|
+| RQNF001 | Usabilidad            | Interfaz clara, intuitiva y fácil de usar. | Alta |
+| RQNF002 | Rendimiento           | Carga rápida del sistema. | Alta |
+| RQNF003 | Seguridad             | Protección de datos mediante autenticación segura. | Alta |
+| RQNF004 | Disponibilidad        | Disponibilidad del 95% del tiempo. | Alta |
+| RQNF005 | Mantenibilidad        | Facilidad para futuras actualizaciones. | Media |
+| RQNF006 | Integridad de datos   | Protección contra pérdida o corrupción de datos. | Alta |
+| RQNF007 | Respaldo              | Copias de seguridad periódicas. | Media |
+
+---
+
+## 👥 6. Stakeholders y Usuarios  
 
 ### 📌 Stakeholders  
 - Instituciones educativas  
-- Docentes  
 - Administradores del sistema  
 
 ### 👤 Usuarios finales  
-- Estudiantes: entregan tareas y consultan actividades  
-- Docentes: publican actividades y retroalimentan  
+- Estudiantes  
+- Docentes  
 
 ---
 
 ## 🧠 7. Historias de Usuario  
 
-- Como estudiante, quiero ver las actividades para cumplir con mis tareas.  
-- Como estudiante, quiero entregar tareas en línea para ser evaluado.  
-- Como docente, quiero publicar actividades para mis estudiantes.  
-- Como docente, quiero dar retroalimentación para mejorar el aprendizaje.  
-- Como usuario, quiero iniciar sesión para acceder al sistema.  
+| ID      | Historia |
+|--------|--------|
+| HIU001 | Como estudiante, quiero ver actividades para organizar mis tareas. |
+| HIU002 | Como estudiante, quiero subir tareas para cumplir con actividades. |
+| HIU003 | Como docente, quiero publicar actividades. |
+| HIU004 | Como docente, quiero revisar tareas. |
+| HIU005 | Como docente, quiero dar retroalimentación. |
+| HIU006 | Como estudiante, quiero recibir notificaciones. |
+| HIU007 | Como usuario, quiero iniciar sesión de forma segura. |
+| HIU008 | Como usuario, quiero registrarme en el sistema. |
+| HIU009 | Como estudiante, quiero ver el estado de mis tareas. |
+| HIU010 | Como usuario, quiero editar mi información personal. |
 
 ---
 
-## 🔀 8. Flujos de Solución  
+## 🔀 8. Flujo del Sistema  
 
-1. Usuario inicia sesión  
+1. Usuario se registra o inicia sesión  
 2. Docente publica actividad  
 3. Estudiante consulta actividad  
 4. Estudiante entrega tarea  
@@ -144,30 +167,32 @@ Plataforma web para gestión académica y aprendizaje colaborativo.
 - Base de datos  
 
 ### 🧰 Tecnologías  
-- HTML, CSS, JavaScript  
-- Python (Flask o Django)  
-- SQLite o MySQL  
+
+Las tecnologías seleccionadas para el desarrollo del proyecto son:  
+
+- Frontend: HTML, CSS y JavaScript  
+- Backend: Node.js con Express  
+- Base de datos: MongoDB  
+- Autenticación: JSON Web Tokens (JWT)  
+- Control de versiones: Git y GitHub  
+
+Estas tecnologías fueron seleccionadas por su eficiencia en el desarrollo de aplicaciones web modernas, permitiendo una arquitectura escalable, segura y de fácil mantenimiento. 
 
 ### 🎯 Beneficios  
 - Digitalización del proceso educativo  
-- Mejora en la comunicación  
+- Mejor comunicación  
 - Organización eficiente  
 
 ---
 
 ## 📊 10. Modelamiento del Sistema  
 
-### 📌 Diagramas estructurales  
+### 📌 Diagramas  
 - Diagrama de clases  
-- Diagrama de componentes  
-
-### 🔄 Diagramas de comportamiento  
 - Diagrama de casos de uso  
-- Diagrama de secuencia  
 - Diagrama de actividades  
 
-### 🗄️ Modelo de datos  
-Entidades principales:  
+### 🗄️ Entidades principales  
 - Usuario  
 - Actividad  
 - Entrega  
@@ -177,11 +202,11 @@ Entidades principales:
 
 ## 🏁 Estado del Proyecto  
 
-Proyecto en fase de formulación y planeación correspondiente a la Actividad 2.  
+Proyecto en fase de formulación y planeación (Actividad 2).  
 
 ---
 
 ## 🫱🏽‍🫲🏽 Autores  
 
 - Andrés Felipe Luengas  
-- Alejandro Rodriguez Guarnizo 
+- Alejandro Rodriguez Guarnizo  
