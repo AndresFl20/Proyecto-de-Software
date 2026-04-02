@@ -32,14 +32,14 @@ Ademas, el uso de herramientas digitales contribuye a aumentar la eficiencia en 
 ## 🎯 2. Objetivos del Proyecto  
 
 ### 🎯 Objetivo General  
-Desarrollar una plataforma web que permita gestionar actividades académicas y facilitar la interacción entre estudiantes y docentes.  
+Desarrollar una plataforma web que permita gestionar actividades académicas y facilite la interacción entre estudiantes y docentes, ayudando a mejorar la organización, el seguimientos de tareas y la comunicación dentro de un entorno educativo.  
 
 ### ✅ Objetivos Específicos  
-- Implementar registro e inicio de sesión de usuarios  
-- Permitir la publicación de actividades académicas  
-- Facilitar la entrega digital de tareas  
-- Implementar retroalimentación docente  
-- Mejorar la organización académica  
+- Diseñar un sistema que permita la creación y consulta de actividades académicas de manera clara y organizada  
+- Implementar una funcionalidad que permita a los estudiantes realizar una entrega de forma digital de sus actividades 
+- Desarrollar un modulo para que los docentes puedan revisar, calificar y proporcionar una retroalimentación sobre las actividades entregadas  
+- Facilitar la comunicación entre estudiantes y docentes mediante el uso de herramientas digitales integradas en la plataforma  
+- Garantizar una experiencia de usuario UX intuitiva, rápida y accesible para todos los usuarios.  
 
 ---
 
@@ -47,21 +47,26 @@ Desarrollar una plataforma web que permita gestionar actividades académicas y f
 
 ### ✔️ Alcance funcional  
 El sistema permitirá:  
-- Registro de usuarios  
-- Publicación de actividades  
+- Registro e inicio de sesión de usuarios de los roles asociados (estudiante y docente)  
+- Creación de actividades académicas por parte del docente. 
+- Visualización de actividades por parte del estudiante.  
 - Entrega de tareas  
-- Retroalimentación  
-- Consulta de estado de tareas  
+- Revisión y retroalimentación de actividades entregas por parte del docente.
+- estión básica de perfiles de usuario. 
 
 ### 🚫 Fuera de alcance  
-- Aplicación móvil  
-- Sistemas de pago  
-- Integraciones externas complejas  
+- Integración con plataformas externas (como sistemas institucionales)  
+- Funcionalidades de videoconferencias o clases en tiempo real  
+- Implementación de grabaciones de sesiones (tutorías, monitorias, material de apoyo)
+- Aplicación móvil (App)
+- Sistema de reportes avanzados
 
 ### 🎁 Beneficios esperados  
-- Organización académica eficiente  
-- Comunicación fluida  
-- Acceso centralizado a la información  
+- Mejora la organización de actividades académicas  
+- Mejora la organización de actividades académicas  
+- Fortalecerá la comunicación entre estudiantes y docentes
+- Reducirá fallas asociadas a la desorganización
+- Promoverá el uso de herramientas digitales en entornos educativos para mejorar el aprendizaje.
 
 ---
 
