@@ -76,18 +76,26 @@ El sistema permitirá:
 Scrum es una metodología ágil basada en Sprints que permite el desarrollo iterativo e incremental del software.  
 
 ### 👨‍💻 Roles  
-- Product Owner  
-- Scrum Master  
-- Equipo de desarrollo  
+- Product Owner (Alejandro Rodriguez): Define y prioriza los requisitos del sistema, asegurando que las funcionalidades de registro, autenticación y gestión de usuarios cumplan con las necesidades del proyecto.  
+- Scrum Master (Andrés Luengas): Facilita el desarrollo del sprint, organiza las reuniones y elimina impedimentos, garantizando el cumplimiento de la metodología Scrum.  
+- El equipo de desarrollo (Andrés y Alejandro): Implementa las funcionalidades del sistema, incluyendo el registro de usuarios, inicio de sesión, gestión de roles y edición de perfil, además de la estructura inicial de la base de datos.
+-  Tester (Andrés Luengas): Validará que todas las funcionalidades desarrolladas funcionen correctamente, verificando la seguridad de los datos, la correcta autenticación y la usabilidad de la interfaz.
 
 ### 🔁 Organización  
 - Sprints de 1–2 semanas  
-- Planificación, revisión y retrospectiva  
+- Planificación de actividades
+- Desarrollo de funcionalidades
+- Revisión de avances
+- Revisión de avances
 
 ### 🛠️ Herramientas  
-- GitHub  
-- Git  
-- Jira  
+- Jira 
+- GitHub
+- Node.js y Express
+- React
+- Mongo
+- Figma
+- DevOps
 
 ---
 
@@ -169,26 +177,24 @@ Scrum es una metodología ágil basada en Sprints que permite el desarrollo iter
 Plataforma web para gestión académica y aprendizaje colaborativo.  
 
 ### 🏗️ Arquitectura  
-- Frontend  
-- Backend  
-- Base de datos  
+- Frontend: interfaz gráfica con diseño accesible desde navegador web  
+- Backend: nos encargamos principalmente de la lógica del sistema gestión de actividades y procesamientos de datos   
+- Base de datos: almacenaremos información roles y datos de forma segura   
 
 ### 🧰 Tecnologías  
 
 Las tecnologías seleccionadas para el desarrollo del proyecto son:  
 
-- Frontend: HTML, CSS y JavaScript  
-- Backend: Node.js con Express  
-- Base de datos: MongoDB  
-- Autenticación: JSON Web Tokens (JWT)  
-- Control de versiones: Git y GitHub  
+- Figma: Se utilizara para el diseño de interfaces y prototipos, ayudando a la planeación de la experiencia del usuario UX. 
+- React: Se utilizara para el desarrollo del frontend ayudando a la creación de la interfaz de usuario IU sea dianmica e interactiva.  
+- Node.js y Express: Se utilizaran para el desarrollo del backend, permitiendo la gestión de lógica del server.  
+- Mongo:  Se utilizara para el almacenamiento y gestión de la información.  
+- GitHub: Se utilizara para el control de versiones de código, documentación de forma colaborativa entre los integrantes del equipo. 
 
 Estas tecnologías fueron seleccionadas por su eficiencia en el desarrollo de aplicaciones web modernas, permitiendo una arquitectura escalable, segura y de fácil mantenimiento. 
 
 ### 🎯 Beneficios  
-- Digitalización del proceso educativo  
-- Mejor comunicación  
-- Organización eficiente  
+- Los principales beneficios es la centralización de la información sobre tareas trabajos y demás actividades relacionadas también se tendrá en cuanta la mejoría en la organización y seguimiento de la actividades acompañadas con una mejora efectiva haciendo que los errores sean reducidos.
 
 ---
 
