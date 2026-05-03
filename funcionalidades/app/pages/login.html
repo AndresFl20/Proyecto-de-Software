@@ -9,33 +9,31 @@
 
 </head>
 
-<body>
+<body class="page-login">
 
-<div class="container">
+<form id="login-form" class="container">
 
     <img src="/img/logo.PNG" class="logo" alt="EduTech">
 
     <h2>Iniciar Sesión</h2>
 
-    <!-- Email -->
     <div class="input-group">
-        <input type="email" placeholder="example@edutech.com">
+        <input type="email" id="email" name="email" placeholder="example@edutech.com" required>
     </div>
 
-    <!-- Password -->
     <div class="input-group">
-        <input type="password" id="password" placeholder="********">
+        <input type="password" id="password" name="password" placeholder="********" required>
         <span class="icon" onclick="togglePassword()"></span>
     </div>
 
-    <button>Ingresar</button>
+    <button type="submit">Ingresar</button>
 
     <div class="links">
         <p><a href="#">¿Olvidó sus credenciales?</a></p>
         <p><a href="/register">Regístrate aquí</a></p>
     </div>
 
-</div>
+</form>
 
 <script src="/login.js"></script>
 

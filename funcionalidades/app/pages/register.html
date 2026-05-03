@@ -4,168 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro EduTech - Diseño</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* --- ESTILOS GENERALES Y RESETEO --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f1f3f6; /* Fondo gris muy claro */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        /* --- CONTENEDOR PRINCIPAL --- */
-        .register-container {
-            background-color: #ffffff;
-            width: 100%;
-            max-width: 440px; /* Ancho máximo similar a la imagen */
-            padding: 40px;
-            border-radius: 8px; /* Bordes ligeramente redondeados */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra suave */
-            text-align: center;
-        }
-
-        /* --- ESTILOS DEL LOGO --- */
-        .logo-container {
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .logo-placeholder {
-            /* Estilo temporal para imitar el logo de la imagen */
-            width: 150px;
-            height: 150px;
-            background-color: #fff;
-            border: 1px solid #eee;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            font-weight: 700;
-            color: #4CAF50; /* Verde de EduTech */
-            border-radius: 4px;
-        }
-        
-        /* Cuando tengas tu imagen real, usa esta clase y borra la de arriba */
-        .logo-image {
-            max-width: 150px;
-            height: auto;
-            display: none; /* Oculta por defecto para el ejemplo */
-        }
-
-        /* --- ESTILOS DE LOS CAMPOS DE ENTRADA --- */
-        .form-group {
-            margin-bottom: 15px;
-            text-align: left;
-            position: relative; /* Para posicionar íconos */
-        }
-
-        .input-field, .select-field {
-            width: 100%;
-            padding: 12px 15px;
-            font-size: 14px;
-            border: 1px solid #d1d9e6; /* Borde gris claro */
-            border-radius: 4px;
-            background-color: #f8fafd; /* Fondo muy claro para inputs */
-            color: #333;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .input-field:focus, .select-field:focus {
-            border-color: #4CAF50; /* Borde verde al enfocar */
-        }
-
-        /* Marcadores de posición (placeholders) en mayúsculas como en la imagen */
-        .input-field::placeholder {
-            color: #888;
-            text-transform: uppercase;
-        }
-
-        /* Estilo específico para campos de contraseña (verde suave) */
-        .password-field {
-            background-color: #e8f5e9 !important; /* Verde muy pálido */
-            border-color: #c8e6c9;
-            padding-right: 45px; /* Espacio para el ícono de ojo */
-        }
-
-        /* --- ESTILOS DEL SELECTOR (DOCENTE) --- */
-        .select-wrapper {
-            position: relative;
-        }
-
-        .select-field {
-            appearance: none; /* Quita el estilo por defecto del navegador */
-            -webkit-appearance: none;
-            background-color: #ffffff; /* El selector es blanco en la imagen */
-        }
-
-        .select-icon {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #546e7a; /* Color gris azulado del ícono */
-            pointer-events: none; /* No interfiere con el clic del select */
-            font-size: 18px;
-        }
-
-        /* --- ÍCONOS DE VISIBILIDAD DE CONTRASEÑA --- */
-        .toggle-password {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #546e7a;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        /* --- ESTILOS DEL BOTÓN --- */
-        .submit-button {
-            width: 100%;
-            padding: 12px;
-            background-color: #66bb6a; /* Verde del botón */
-            color: #ffffff;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            margin-top: 20px;
-            margin-bottom: 15px;
-            transition: background-color 0.2s;
-        }
-
-        .submit-button:hover {
-            background-color: #4caf50; /* Verde más oscuro al pasar el mouse */
-        }
-
-        /* --- ENLACE INFERIOR --- */
-        .login-link {
-            font-size: 13px;
-            color: #1565c0; /* Azul para el enlace */
-            text-decoration: none;
-        }
-
-        .login-link:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="page-register">
 
     <div class="register-container">
         <div class="logo-container">
@@ -208,7 +49,7 @@
 </form>
         </form>
 
-        <a href="#" class="login-link">Ya tengo cuenta</a>
+        <a href="/" class="login-link">Ya tengo cuenta</a>
     </div>
 
     <script>

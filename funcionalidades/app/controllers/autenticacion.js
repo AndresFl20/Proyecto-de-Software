@@ -1,38 +1,13 @@
 import User from '../../models/usuarioj.js';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
-async function login(req, res) {
-    const { email, password } = req.body;
+dotenv.config();
 
-    if (!email || !password) {
-        return res.status(400).send({ status: "Error", message: "Los campos están incompletos" });
-    }
+const SECRET_KEY = process.env.JWT_SECRET || 'clave_secreta_super_segura';
 
-    try {
-        // Buscar al usuario por correo
-        const userFound = await User.findOne({ email });
-
-        if (!userFound) {
-            return res.status(401).send({ status: "Error", message: "Credenciales incorrectas" });
-        }
-
-        // Verificar la contraseña 
-        if (userFound.password !== password) {
-            return res.status(401).send({ status: "Error", message: "Credenciales incorrectas" });
-        }
-
-        res.status(200).send({ 
-            status: "Success", 
-            message: "Inicio de sesión exitoso", 
-            user: { user: userFound.user, email: userFound.email, rol: userFound.rol } 
-        });
-
-    } catch (error) {
-        console.error("Error en el login:", error);
-        res.status(500).send({ status: "Error", message: "Error interno del servidor" });
-    }
-}
-
-async function register(req, res) {
+// 1. Controlador de Registro
+export async function register(req, res) {
     console.log("Datos recibidos:", req.body);
     const { nombre, password, email, rol } = req.body;
 
@@ -55,7 +30,6 @@ async function register(req, res) {
             email,
             password,
             rol
-            // 'createdAt' no es necesario agregarlo aquí porque el esquema lo crea automáticamente.
         });
 
         // Guardar en la base de datos
@@ -73,9 +47,58 @@ async function register(req, res) {
     }
 }
 
-export default register; // O module.exports si usas CommonJS
+// 2. Controlador de Login
+export async function login(req, res) {
+    console.log("Datos de login recibidos:", req.body);
+    const { email, password } = req.body;
 
+    if (!email || !password) {
+        return res.status(400).send({ status: "Error", message: "Los campos están incompletos" });
+    }
+
+    try {
+        // Buscar al usuario por correo
+        const userFound = await User.findOne({ email });
+
+        if (!userFound) {
+            return res.status(401).send({ status: "Error", message: "Credenciales incorrectas" });
+        }
+
+        // Verificar la contraseña 
+        if (userFound.password !== password) {
+            return res.status(401).send({ status: "Error", message: "Credenciales incorrectas" });
+        }
+
+        // Generamos el Token JWT
+        const token = jwt.sign(
+            { 
+                id: userFound._id, 
+                email: userFound.email, 
+                rol: userFound.rol 
+            }, 
+            SECRET_KEY, 
+            { expiresIn: '2h' }
+        );
+
+        res.status(200).send({ 
+            status: "Success", 
+            message: "Inicio de sesión exitoso", 
+            token: token,
+            user: { 
+                nombre: userFound.nombre,
+                email: userFound.email, 
+                rol: userFound.rol 
+            } 
+        });
+
+    } catch (error) {
+        console.error("Error en el login:", error);
+        res.status(500).send({ status: "Error", message: "Error interno del servidor" });
+    }
+}
+
+// 🔥 Exportamos el objeto method tal como lo espera tu index.js
 export const method = {
-    login,
-    register
+    register,
+    login
 };
