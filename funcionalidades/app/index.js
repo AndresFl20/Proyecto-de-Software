@@ -3,20 +3,15 @@ import path from "path";
 import { fileURLToPath } from "url";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import dns from "dns";
-
-// 🔥 1. Forzar servidores DNS para solucionar el error de resolución
-dns.setServers(["8.8.8.8", "8.8.4.4"]);
+import { method as autenticacion } from "./controllers/autenticacion.js";
+dotenv.config();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-// 🔥 2. Cargar .env apuntando explícitamente a la raíz del proyecto
-dotenv.config({ path: path.join(__dirname, "../.env") });
 
 const app = express();
 
 // 🔥 MIDDLEWARES
-app.use(express.json());
+app.use(express.json()); // para recibir JSON
 app.use(express.static(path.join(__dirname, "public")));
 
 // 🔥 CONEXIÓN A MONGO
@@ -40,3 +35,5 @@ app.get("/register", (req, res) => {
     res.sendFile(path.join(__dirname, "pages", "register.html"));
 });
 
+app.post("/api/registro", autenticacion.register);
+app.post("/api/login", autenticacion.login);
