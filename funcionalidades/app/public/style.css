@@ -1,11 +1,13 @@
+/* --- ESTILOS GENERALES Y RESETEO --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
-body {
+/* --- FONDOS SEGÚN LA PÁGINA --- */
+.page-login {
     height: 100vh;
     background: linear-gradient(135deg, #1A4B84, #69B34C);
     display: flex;
@@ -13,52 +15,155 @@ body {
     align-items: center;
 }
 
-.container {
+.page-register, .page-dashboard {
+    height: 100vh;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- CONTENEDORES --- */
+.container-login {
     background: white;
     padding: 40px 30px;
     border-radius: 12px;
     width: 350px;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+.container, .register-container {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.container {
+    max-width: 400px; /* Tamaño para el Dashboard y Login general */
+}
+
+.register-container {
+    max-width: 440px; /* Tamaño para el Registro */
+}
+
+/* --- TIPOGRAFÍA --- */
+h1, h2 { 
+    color: #1A4B84; 
+    margin-bottom: 20px;
+}
+
+p { 
+    color: #666; 
+    margin-bottom: 15px;
+}
+
+/* --- ESTILOS DEL LOGO --- */
 .logo {
     width: 120px;
     margin-bottom: 20px;
 }
 
-h2 {
-    color: #1A4B84;
-    margin-bottom: 20px;
+.logo-container {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
 }
 
-.input-group {
+.logo-placeholder {
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #4CAF50; /* Verde de EduTech */
+    border-radius: 4px;
+}
+
+.logo-image {
+    max-width: 150px;
+    height: auto;
+    display: none;
+}
+
+/* --- ESTILOS DE LOS CAMPOS DE ENTRADA --- */
+.input-group, .form-group {
     position: relative;
     margin-bottom: 20px;
+    text-align: left;
 }
 
-input {
+input, .input-field, .select-field {
     width: 100%;
-    padding: 12px 40px 12px 12px;
+    padding: 12px 15px;
+    font-size: 14px;
     border: 2px solid #1A4B84;
     border-radius: 6px;
+    background-color: #f8fafd;
+    color: #333;
     outline: none;
-    font-size: 14px;
+    transition: border-color 0.2s;
 }
 
-input:focus {
+input:focus, .input-field:focus, .select-field:focus {
     border-color: #69B34C;
 }
 
-.icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
+/* Marcadores de posición (placeholders) */
+input::placeholder, .input-field::placeholder {
+    color: #888;
+    text-transform: uppercase;
 }
 
-button {
+/* Estilo específico para campos de contraseña */
+.password-field {
+    background-color: #e8f5e9 !important;
+    border-color: #c8e6c9;
+    padding-right: 45px;
+}
+
+/* --- ESTILOS DEL SELECTOR --- */
+.select-wrapper {
+    position: relative;
+}
+
+.select-field {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #ffffff;
+}
+
+.select-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #546e7a;
+    pointer-events: none;
+    font-size: 18px;
+}
+
+/* --- ÍCONOS DE VISIBILIDAD --- */
+.icon, .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #546e7a;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* --- BOTONES --- */
+button, .submit-button {
     width: 100%;
     padding: 12px;
     background: #1A4B84;
@@ -67,23 +172,35 @@ button {
     border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 
-button:hover {
+button:hover, .submit-button:hover { 
     background: #69B34C;
 }
 
+/* Botón de eliminar o cerrar sesión en rojo (Dashboard) */
+.btn-danger {
+    background-color: #ff4d4f !important;
+}
+
+.btn-danger:hover { 
+    background-color: #ff7875 !important; 
+}
+
+/* --- ENLACES --- */
 .links {
     margin-top: 15px;
     font-size: 13px;
 }
 
-.links a {
+.links a, .login-link {
     color: #1A4B84;
     text-decoration: none;
 }
 
-.links a:hover {
+.links a:hover, .login-link:hover {
     text-decoration: underline;
 }
