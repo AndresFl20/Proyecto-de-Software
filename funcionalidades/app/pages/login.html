@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página</title>
+    <link rel ="stylesheet" href="style.css">
+    <script src="login.js" defer></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <img src="/img/logo.PNG" class="logo" alt="EduTech">
+
+    <h2>Iniciar Sesión</h2>
+
+    <!-- Email -->
+    <div class="input-group">
+        <input type="email" placeholder="example@edutech.com">
+    </div>
+
+    <!-- Password -->
+    <div class="input-group">
+        <input type="password" id="password" placeholder="********">
+        <span class="icon" onclick="togglePassword()"></span>
+    </div>
+
+    <button>Ingresar</button>
+
+    <div class="links">
+        <p><a href="#">¿Olvidó sus credenciales?</a></p>
+        <p><a href="/register">Regístrate aquí</a></p>
+    </div>
+
+</div>
+
+<script src="/login.js"></script>
+
+</body>
+
+</html>
