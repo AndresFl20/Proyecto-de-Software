@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { method as autenticacion } from "./controllers/autenticacion.js";
+import { method as courseController } from "./controllers/course.controller.js";
 dotenv.config();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -38,6 +39,42 @@ app.get("/register", (req, res) => {
 app.post("/api/registro", autenticacion.register);
 app.post("/api/login", autenticacion.login);
 
-app.get("/dashboard", (req, res) => {
-    res.sendFile(path.join(__dirname, "pages", "dashboard.html"));
+app.get("/dashboard-estudiante",(req, res) => {
+    res.sendFile(path.join(__dirname,"pages","dashboard-estudiante.html"));
+});
+
+app.get("/api/cursos",courseController.obtenerCursos);
+app.post("/api/cursos",courseController.crearCurso);
+
+
+
+app.get(
+    "/api/mis-cursos",
+    courseController.obtenerCursosEstudiante
+);
+
+app.get("/test-inscripciones", async (req, res) => {
+
+    const datos = await mongoose.connection.db
+        .collection("inscripcions")
+        .find({})
+        .toArray();
+
+    res.json(datos);
+
+});
+
+app.get("/ver-colecciones", async (req, res) => {
+
+    const db = mongoose.connection.db;
+
+    const cursosMayus = await db.collection("Cursos").countDocuments();
+
+    const cursosMinus = await db.collection("courses").countDocuments();
+
+    res.json({
+        Cursos: cursosMayus,
+        courses: cursosMinus
     });
+
+});

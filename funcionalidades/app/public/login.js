@@ -28,7 +28,7 @@ if (loginForm) {
                 alert("¡Inicio de sesión exitoso!");
 
                 // Redirigimos al usuario a la ruta del dashboard
-                window.location.href = "/dashboard"; 
+                window.location.href = "/dashboard-estudiante"; 
             } else {
                 // Si hay un error, lo mostramos en pantalla
                 const errorData = await res.json();
