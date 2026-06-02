@@ -1,0 +1,116 @@
+@import url('/dashboard.css');
+
+.navbar {
+    position: relative;    
+    height: 105px;         
+    align-items: flex-start; 
+    padding-top: 15px;
+}
+
+.usuario {
+    align-items: center;
+    margin-top: 5px;
+}
+
+.btn-nav-cursos-fijo {
+    position: absolute;
+    bottom: 0;
+    left: 320px; 
+    background-color: #5cb85c; 
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0 25px; 
+    border-radius: 4px 4px 0 0; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px; 
+    transition: background 0.2s;
+    z-index: 10; 
+}
+
+.btn-nav-cursos-fijo:hover {
+    background-color: #4cae4c;
+}
+
+.layout-curso-detalle {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 25px;
+    padding: 35px;
+}
+
+.sidebar-actividades {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-actividad-header {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E0;
+    color: #4A5568;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px 4px 0 0;
+}
+
+.btn-actividad {
+    background: #EDF2F7;
+    color: #718096;
+    border: 1px solid #CBD5E0;
+    border-top: none;
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+}
+
+.btn-actividad.activa {
+    background: #1A4B84;
+    color: #FFFFFF;
+}
+
+.banner-curso-header {
+    background: #D9D9D9;
+    padding: 25px;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 25px;
+}
+
+.banner-curso-header h1 {
+    color: #1A4B84;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.banner-curso-header h3 {
+    color: #4A5568;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.tarjeta-blanca-detalle {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    padding: 30px;
+    border-radius: 4px;
+    color: #2D3748;
+    line-height: 1.6;
+}
+
+@media(max-width: 768px) {
+    .btn-nav-cursos-fijo {
+        left: 15px;
+    }
+}/*  */
