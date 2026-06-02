@@ -6,25 +6,21 @@ dotenv.config();
 
 const SECRET_KEY = process.env.JWT_SECRET || 'clave_secreta_super_segura';
 
-// 1. Controlador de Registro
 export async function register(req, res) {
     console.log("Datos recibidos:", req.body);
     const { nombre, password, email, rol } = req.body;
 
-    // Validamos que los 4 campos principales existan
     if (!nombre || !password || !email || !rol) {
         return res.status(400).send({ status: "Error", message: "Los campos están incompletos" });
     }
 
     try {
-        // Verificar si el usuario ya existe con ese correo
         const userExists = await User.findOne({ email });
         
         if (userExists) {
             return res.status(400).send({ status: "Error", message: "El usuario ya existe con ese correo" });
         }
 
-        // Crear el nuevo documento con los datos exactos del esquema
         const nuevoUsuario = new User({
             nombre,
             email,
@@ -32,7 +28,6 @@ export async function register(req, res) {
             rol
         });
 
-        // Guardar en la base de datos
         await nuevoUsuario.save();
 
         res.status(201).send({ 
@@ -47,7 +42,6 @@ export async function register(req, res) {
     }
 }
 
-// 2. Controlador de Login
 export async function login(req, res) {
     console.log("Datos de login recibidos:", req.body);
     const { email, password } = req.body;
@@ -57,19 +51,16 @@ export async function login(req, res) {
     }
 
     try {
-        // Buscar al usuario por correo
         const userFound = await User.findOne({ email });
 
         if (!userFound) {
             return res.status(401).send({ status: "Error", message: "Credenciales incorrectas" });
         }
 
-        // Verificar la contraseña 
         if (userFound.password !== password) {
             return res.status(401).send({ status: "Error", message: "Credenciales incorrectas" });
         }
 
-        // Generamos el Token JWT
         const token = jwt.sign(
             { 
                 id: userFound._id, 
@@ -97,7 +88,6 @@ export async function login(req, res) {
     }
 }
 
-// 🔥 Exportamos el objeto method tal como lo espera tu index.js
 export const method = {
     register,
     login

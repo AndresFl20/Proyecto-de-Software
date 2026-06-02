@@ -2,14 +2,12 @@ const loginForm = document.getElementById('login-form');
 
 if (loginForm) {
     loginForm.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Evita que la página se recargue por defecto
+        e.preventDefault();
 
-        // Obtenemos los valores de los inputs usando el atributo 'name'
         const formData = new FormData(e.target);
         const datos = Object.fromEntries(formData.entries());
 
         try {
-            // Enviamos los datos al backend
             const res = await fetch('/api/login', {
                 method: 'POST',
                 headers: {
@@ -18,21 +16,24 @@ if (loginForm) {
                 body: JSON.stringify(datos)
             });
 
-            // 🔥 AQUÍ ES DONDE VA TU CÓDIGO
             if (res.ok) {
+
                 const data = await res.json();
-                
-                // Guardamos el token en el almacenamiento del navegador
-                localStorage.setItem("token", data.token);
+
+                localStorage.setItem(
+                    "token",
+                    data.token
+                );
+
+                localStorage.setItem(
+                    "usuario",
+                    JSON.stringify(data.user)
+                );
 
                 alert("¡Inicio de sesión exitoso!");
 
-                // Redirigimos al usuario a la ruta del dashboard
-                window.location.href = "/dashboard-estudiante"; 
-            } else {
-                // Si hay un error, lo mostramos en pantalla
-                const errorData = await res.json();
-                alert(errorData.message || "Error al iniciar sesión");
+                window.location.href =
+                    "/dashboard-estudiante";
             }
 
         } catch (error) {

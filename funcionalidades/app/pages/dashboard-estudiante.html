@@ -1,52 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>EduTech</title>
-   <link rel="stylesheet" href="/dashboard.css">
+    <link rel="stylesheet" href="/dashboard.css">
 </head>
+
 <body>
 
-<nav class="navbar">
-    <div class="logo">
-        <img src="/img/navbar icon.png" alt="logo">
-    </div>
-
-    <div class="usuario">
-        <span class="campana">🔔</span>
-
-        <div class="datos-usuario">
-            <h3 id="nombreUsuario">JUAN PEREZ</h3>
-            <span id="rolUsuario">Estudiante</span>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="/img/navbar icon.png" alt="logo">
         </div>
 
-        <img class="foto" src="https://i.pravatar.cc/100" alt="perfil" >
+        <div class="usuario">
 
-        <span class="flecha">▼</span>
-    </div>
-</nav>
+            <span class="campana" id="campana">
 
-<main class="contenido">
-    <h1>Cursos</h1>
+                🔔
 
-    <div class="filtros">
-        <select>
-            <option>Todos</option>
-        </select>
-        <input type="text" placeholder="Buscar">
-        <select>
-            <option>Estado</option>
-            <option>Activo</option>
-            <option>Finalizado</option>
-        </select>
-    </div>
+                <span class="contador">
+                    3
+                </span>
 
-    <div id="contenedorCursos">
-    </div>
+            </span>
 
-</main>
+            <div id="panelNotificaciones" class="panel-notificaciones">
 
-<script src="/dashboard.js"></script>
+                <h3>Notificaciones</h3>
+
+                <div id="listaNotificaciones"></div>
+
+                <div class="ver-todo">
+                    Ver todo
+                </div>
+
+            </div>
+
+            <div class="datos-usuario" id="perfilUsuario">
+
+                <h3 id="nombreUsuario">
+                    JUAN PEREZ
+                </h3>
+
+                <span id="rolUsuario">
+                    Estudiante
+                </span>
+
+            </div>
+
+            <img id="fotoUsuario" class="foto" src="https://i.pravatar.cc/100" alt="perfil">
+            <span class="flecha">
+                ▼
+            </span>
+
+        </div>
+
+    </nav>
+
+    <main class="contenido">
+        <h1>Cursos</h1>
+
+        <div class="filtros">
+            <select>
+                <option>Todos</option>
+            </select>
+            <input type="text" id="buscarCurso" placeholder="Buscar curso">
+            <select id="filtroEstado">
+                <option value="">Todos</option>
+                <option value="activo">Activo</option>
+                <option value="finalizado">Finalizado</option>
+            </select>
+        </div>
+
+        <div id="contenedorCursos">
+        </div>
+
+    </main>
+
+    <script src="/dashboard.js"></script>
 
 </body>
+
 </html>
