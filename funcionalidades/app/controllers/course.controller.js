@@ -166,6 +166,7 @@ async function obtenerCursosPorDocente(req, res) {
         return res.status(500).json({ message: "Error al cargar las asignaturas del docente" });
     }
 }
+
 export const method = {
     obtenerCursos,
     crearCurso,
@@ -173,6 +174,6 @@ export const method = {
     getCursoDetalle,
     guardarEntrega,
     obtenerEntregasPorActividad,
-    calificarEntrega,
+    calificarEntrega, // <--- ESTO ES LO QUE FALTABA
     obtenerCursosPorDocente
 };

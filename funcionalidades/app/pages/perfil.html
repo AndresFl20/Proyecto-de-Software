@@ -1,110 +1,86 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
-
-    ```
     <meta charset="UTF-8">
-
-    <title>Mi Perfil</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil | EduTech</title>
     <link rel="stylesheet" href="/perfil.css">
-
 </head>
-
 <body>
 
-<nav class="navbar">
-
-    <div style="display: flex; align-items: center; gap: 20px;">
-        <div class="logo">
-            <img src="/img/navbar icon.png" alt="logo">
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="logo">
+                <img src="/img/navbar icon.png" alt="logo">
+            </div>
+            <a href="/dashboard-estudiante" class="btn-volver">
+                Cursos
+            </a>
         </div>
 
-        <a href="/dashboard-estudiante" class="btn-volver">
-            Cursos
-        </a>
-    </div>
-
-    <div class="usuario">
-
-        <span class="campana" id="campana">
-            🔔
-            <span class="contador">3</span>
-        </span>
-
         <div class="usuario">
-            <div class="datos-usuario">
+
+            <span class="campana" id="campana">
+                🔔
+                <span class="contador">3</span>
+            </span>
+
+            <div id="panelNotificaciones" class="panel-notificaciones">
+                <h3>Notificaciones</h3>
+                <div id="listaNotificaciones"></div>
+                <div class="ver-todo">Ver todo</div>
+            </div>
+
+            <div class="datos-usuario" id="perfilUsuario">
                 <h3 id="nombreNavbar"></h3>
                 <span id="rolNavbar"></span>
             </div>
-            <img class="foto" src="https://i.pravatar.cc/100" alt="perfil">
-        </div>
 
-    </div> </nav>
+            <img id="fotoNavbar" class="foto" src="/img/default.jpg" alt="perfil">
+            <span class="flecha">▼</span>
+
+        </div> 
+    </nav>
 
     <main class="contenido">
-
-
+        
         <div class="perfil-card">
-
+            
             <div class="imagen-actual">
-
                 <label>Imagen actual</label>
-
-                <img id="fotoPerfil" src="https://i.pravatar.cc/150" alt="perfil">
-
+                <img id="fotoPerfil" src="/img/default.jpg" alt="perfil">
             </div>
 
             <div class="formulario">
-
                 <h2 id="nombreTitulo"></h2>
 
                 <label>Nueva imagen</label>
-
                 <input type="file" id="nuevaFoto">
 
                 <label>Nombre</label>
-
                 <input type="text" id="nombre">
 
                 <label>Correo</label>
-
                 <input type="email" id="email">
 
                 <label>Rol</label>
-
                 <input type="text" id="rol" readonly>
 
                 <label>Nueva contraseña</label>
-
                 <input type="password" id="password">
 
                 <label>Confirmar contraseña</label>
-
                 <input type="password" id="confirmPassword">
 
                 <div class="acciones">
-
-                    <button id="btnGuardar">
-                        Guardar
-                    </button>
-
-                    <button id="btnCancelar">
-                        Cancelar
-                    </button>
-
+                    <button id="btnGuardar">Guardar</button>
+                    <button id="btnCancelar">Cancelar</button>
                 </div>
-
             </div>
-
         </div>
 
     </main>
 
     <script src="/perfil.js"></script>
-
 </body>
-
 </html>
