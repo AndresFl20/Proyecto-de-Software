@@ -3,6 +3,10 @@ const usuario = JSON.parse(localStorage.getItem("usuario"));
 if (usuario) {
     document.getElementById("nombreUsuario").textContent = usuario.nombre;
     document.getElementById("rolUsuario").textContent = usuario.rol;
+    
+    if (usuario.imagen) {
+        document.getElementById("fotoUsuario").src = usuario.imagen;
+    }
 }
 
 const contenedor = document.getElementById("contenedorCursos");
@@ -24,13 +28,12 @@ function aplicarFiltros() {
             inscripcion.curso.estado
                 .toLowerCase() === estado;
 
-        return (coindexNombre && coincideEstado); // Nota: Tenías una variable 'coincideNombre' definida arriba, asegúrate de mantenerla igual
+        return (coincideNombre && coincideEstado);
     });
 
     mostrarCursos(filtrados);
 }
 
-// ⭐ FUNCIÓN MODIFICADA: Ahora agrega el ID del curso como un atributo "data-id" para poder hacer clic
 function mostrarCursos(cursos) {
     contenedor.innerHTML = "";
 
@@ -48,22 +51,24 @@ function mostrarCursos(cursos) {
         `;
     });
 
-    // ⭐ NUEVO: Agregar el evento de escucha (Click) a cada tarjeta de curso generada
     const tarjetas = document.querySelectorAll(".curso-card");
     tarjetas.forEach(tarjeta => {
         tarjeta.addEventListener("click", () => {
             const cursoId = tarjeta.getAttribute("data-id");
-            // Redirige a la vista que declaramos en index.js pasando el ID en la URL
             window.location.href = `/curso-detalle?id=${cursoId}`;
         });
     });
 }
 
 async function cargarCursos() {
-    const respuesta = await fetch("/api/mis-cursos");
-    const inscripciones = await respuesta.json();
-    cursosCargados = inscripciones;
-    mostrarCursos(cursosCargados);
+    try {
+        const respuesta = await fetch("/api/mis-cursos");
+        const inscripciones = await respuesta.json();
+        cursosCargados = inscripciones;
+        mostrarCursos(cursosCargados);
+    } catch (error) {
+        console.error("Error al cargar los cursos desde el servidor:", error);
+    }
 }
 
 buscador.addEventListener("input", aplicarFiltros);
@@ -97,6 +102,29 @@ document.getElementById("perfilUsuario")?.addEventListener("click", () => {
 
 document.getElementById("fotoUsuario")?.addEventListener("click", () => {
     window.location.href = "/perfil";
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const alerta = document.getElementById("alertaPerfil");
+
+    if (localStorage.getItem("mostrarAlertaPerfil") === "true") {
+        if (alerta) {
+            alerta.style.display = "flex";
+
+            localStorage.removeItem("mostrarAlertaPerfil");
+
+            setTimeout(() => {
+                alerta.style.transition = "opacity 0.5s ease";
+                alerta.style.opacity = "0";
+
+                setTimeout(() => {
+                    alerta.style.display = "none";
+                    alerta.style.opacity = "1";
+                }, 500);
+
+            }, 4000);
+        }
+    }
 });
 
 cargarCursos();

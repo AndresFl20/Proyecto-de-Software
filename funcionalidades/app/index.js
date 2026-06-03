@@ -3,6 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import bodyParser from "body-parser";
 
 import { method as autenticacion } from "./controllers/autenticacion.js";
 import { method as courseController } from "./controllers/course.controller.js";
@@ -13,7 +14,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
-app.use(express.json());
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }));
+
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -26,7 +31,6 @@ const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
     console.log("Servidor corriendo en puerto", PORT);
 });
-
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "pages", "login.html"));
@@ -48,18 +52,16 @@ app.get("/curso-detalle", (req, res) => {
     res.sendFile(path.join(__dirname, "pages", "curso-detalle.html"));
 });
 
-
 app.post("/api/registro", autenticacion.register);
 app.post("/api/login", autenticacion.login);
+app.put("/api/usuarios/actualizar", autenticacion.actualizarPerfil); 
 
 app.get("/api/cursos", courseController.obtenerCursos);
 app.post("/api/cursos", courseController.crearCurso);
 app.get("/api/mis-cursos", courseController.obtenerCursosEstudiante);
+
 app.post("/api/entregas", courseController.guardarEntrega);
-
-// Se queda solo aquí abajo, organizada junto a las demás APIs
 app.get("/api/cursos/:id", courseController.getCursoDetalle);
-
 
 app.get("/test-inscripciones", async (req, res) => {
     const datos = await mongoose.connection.db
