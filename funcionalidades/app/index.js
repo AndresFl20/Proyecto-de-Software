@@ -54,6 +54,8 @@ app.get("/ver-colecciones", async (req, res) => {
     res.json({ Cursos: cursosMayus, courses: cursosMinus });
 });
 
+app.get("/login", (req, res) => res.sendFile(path.join(__dirname, "pages", "login.html")));
+
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
     console.log("🚀 Servidor corriendo en puerto", PORT);

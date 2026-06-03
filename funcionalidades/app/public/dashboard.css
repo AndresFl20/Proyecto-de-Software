@@ -12,7 +12,6 @@ body {
     color: #1A202C;
 }
 
-/* NAVBAR */
 .navbar {
 
     background: #1A4B84;
@@ -32,7 +31,6 @@ body {
     width: auto;
 }
 
-/* USUARIO */
 .usuario {
 
     position: relative;
@@ -45,7 +43,6 @@ body {
     color: white;
 }
 
-/* CAMPANA */
 .campana {
 
     position: relative;
@@ -62,7 +59,6 @@ body {
     height: 32px;
 }
 
-/* CONTADOR */
 .contador {
 
     position: absolute;
@@ -87,7 +83,6 @@ body {
     justify-content: center;
 }
 
-/* DATOS USUARIO */
 .datos-usuario {
 
     text-align: right;
@@ -113,7 +108,6 @@ body {
     font-weight: 500;
 }
 
-/* FOTO */
 .foto {
 
     width: 55px;
@@ -125,13 +119,11 @@ body {
     object-fit: cover;
 }
 
-/* FLECHA */
 .flecha {
 
     font-size: 12px;
 }
 
-/* PANEL NOTIFICACIONES */
 .panel-notificaciones {
 
     position: absolute;
@@ -157,7 +149,6 @@ body {
         0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
-/* TITULO */
 .panel-notificaciones h3 {
 
     padding: 14px;
@@ -173,7 +164,6 @@ body {
     border-bottom: 1px solid #E2E8F0;
 }
 
-/* LISTA */
 #listaNotificaciones {
 
     max-height: 300px;
@@ -181,7 +171,6 @@ body {
     overflow-y: auto;
 }
 
-/* ITEM */
 .notificacion {
 
     padding: 14px;
@@ -204,7 +193,6 @@ body {
     background: #F7FAFC;
 }
 
-/* VER TODO */
 .ver-todo {
 
     padding: 14px;
@@ -223,7 +211,6 @@ body {
     background: #F7FAFC;
 }
 
-/* CONTENIDO*/
 .contenido {
     padding: 35px;
 }
@@ -237,7 +224,6 @@ body {
     margin-bottom: 30px;
 }
 
-/* FILTROS*/
 .filtros {
     display: flex;
     gap: 20px;
@@ -276,27 +262,23 @@ body {
     border-color: #63B3ED;
 }
 
-/* CURSOS*/
 #contenedorCursos {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-/* TARJETA*/
 .curso-card {
     display: flex;
     min-height: 150px;
 }
 
-/* IMAGEN*/
 .curso-card img {
     width: 240px;
     height: 150px;
     object-fit: cover;
 }
 
-/* INFORMACION*/
 .info-curso {
 
     flex: 1;
@@ -347,7 +329,6 @@ body {
     line-height: 24px;
 }
 
-/* RESPONSIVE*/
 @media(max-width:768px) {
 
     .navbar {
@@ -375,4 +356,43 @@ body {
         width: 100%;
         height: 220px;
     }
+}
+
+#menuUsuario {
+    position: absolute;
+    top: 75px;
+    right: 20px;
+    width: 160px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+    overflow: hidden;
+    display: none;
+}
+
+.opcion-menu {
+    padding: 14px;
+    text-align: center;
+    color: #E53E3E;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.opcion-menu:hover {
+    background: #FFF5F5;
+}
+
+#btnMenuUsuario {
+    cursor: pointer;
+    padding: 5px;
+    user-select: none;
+    transition: opacity 0.2s;
+}
+
+#btnMenuUsuario:hover {
+    opacity: 0.7;
 }

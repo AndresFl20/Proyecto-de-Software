@@ -2,12 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const usuarioLogueado = JSON.parse(localStorage.getItem("usuario"));
 
     if (usuarioLogueado) {
-
         if (document.getElementById("nombre")) document.getElementById("nombre").value = usuarioLogueado.nombre;
         if (document.getElementById("email")) document.getElementById("email").value = usuarioLogueado.email;
         if (document.getElementById("rol")) document.getElementById("rol").value = usuarioLogueado.rol;
         if (document.getElementById("nombreTitulo")) document.getElementById("nombreTitulo").textContent = usuarioLogueado.nombre;
-
 
         if (document.getElementById("nombreNavbar")) {
             document.getElementById("nombreNavbar").textContent = usuarioLogueado.nombre;
@@ -41,6 +39,36 @@ document.addEventListener("DOMContentLoaded", () => {
             div.textContent = texto;
             listaNotificaciones.appendChild(div);
         });
+    }
+
+    const btnMenu = document.getElementById("btnMenuUsuario");
+    const menuUsuario = document.getElementById("menuUsuario");
+    const btnCerrarSesion = document.getElementById("cerrarSesion");
+
+    if (btnMenu && menuUsuario) {
+        btnMenu.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const estaOculto = window.getComputedStyle(menuUsuario).display === "none";
+            // Cerramos notificaciones si están abiertas
+            if (panelNotificaciones) panelNotificaciones.style.display = "none";
+            menuUsuario.style.display = estaOculto ? "block" : "none";
+        });
+    }
+
+    if (btnCerrarSesion) {
+        btnCerrarSesion.addEventListener("click", () => {
+            localStorage.clear();
+            window.location.href = "/login";
+        });
+    }
+
+    document.addEventListener("click", () => {
+        if (panelNotificaciones) panelNotificaciones.style.display = "none";
+        if (menuUsuario) menuUsuario.style.display = "none";
+    });
+
+    if (menuUsuario) {
+        menuUsuario.addEventListener("click", (e) => e.stopPropagation());
     }
 });
 
@@ -115,12 +143,12 @@ const panelNotificaciones = document.getElementById("panelNotificaciones");
 if (campana && panelNotificaciones) {
     campana.addEventListener("click", (e) => {
         e.stopPropagation();
+        
+        const menuUsuario = document.getElementById("menuUsuario");
+        if (menuUsuario) menuUsuario.style.display = "none";
+        
         const estaOculto = window.getComputedStyle(panelNotificaciones).display === "none";
         panelNotificaciones.style.display = estaOculto ? "block" : "none";
-    });
-
-    document.addEventListener("click", () => {
-        panelNotificaciones.style.display = "none";
     });
 
     panelNotificaciones.addEventListener("click", (e) => {

@@ -7,8 +7,15 @@
     <link rel="stylesheet" href="/dashboard.css">
     <style>
         @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
     </style>
 </head>
@@ -31,17 +38,25 @@
                 <div class="ver-todo">Ver todo</div>
             </div>
 
-            <div class="datos-usuario" id="perfilUsuario" style="cursor: pointer;">
+            <div class="datos-usuario" id="perfilUsuario">
                 <h3 id="nombreUsuario">CARGANDO...</h3>
                 <span id="rolUsuario">Estudiante</span>
             </div>
 
-            <img id="fotoUsuario" class="foto" src="/img/default.jpg" alt="perfil" style="cursor: pointer;">
-            <span class="flecha">▼</span>
+            <img id="fotoUsuario" class="foto" src="/img/default.jpg" alt="perfil">
+            <span class="flecha" id="btnMenuUsuario" style="cursor: pointer;">▼</span>
+
+            <div id="menuUsuario" class="panel-notificaciones" style="display: none;">
+                <div class="opcion-menu" id="cerrarSesion"
+                    style="padding: 12px; cursor: pointer; color: #E53E3E; font-weight: bold; text-align: center;">
+                    Cerrar Sesión
+                </div>
+            </div>
         </div>
     </nav>
 
-    <div id="alertaPerfil" style="display: none; position: fixed; top: 110px; right: 30px; background: #5cb85c; color: white; padding: 15px 25px; border-radius: 6px; z-index: 9999; align-items: center; gap: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); font-family: sans-serif; min-width: 300px; animation: fadeInRight 0.3s ease-in-out;">
+    <div id="alertaPerfil"
+        style="display: none; position: fixed; top: 110px; right: 30px; background: #5cb85c; color: white; padding: 15px 25px; border-radius: 6px; z-index: 9999; align-items: center; gap: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); font-family: sans-serif; min-width: 300px; animation: fadeInRight 0.3s ease-in-out;">
         <div style="font-size: 20px; font-weight: bold;">✓</div>
         <div>
             <strong style="display: block; font-size: 15px; margin-bottom: 2px;">¡Perfil actualizado!</strong>
@@ -59,9 +74,9 @@
             <select id="filtroCategoria">
                 <option value="">Todas las áreas</option>
             </select>
-            
+
             <input type="text" id="buscarCurso" placeholder="Buscar curso">
-            
+
             <select id="filtroEstado">
                 <option value="">Todos los estados</option>
                 <option value="activo">Activo</option>

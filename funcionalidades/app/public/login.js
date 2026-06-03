@@ -1,4 +1,3 @@
-// Validamos si ya existe para evitar el error de "already been declared"
 if (typeof loginForm === 'undefined') {
     var loginForm = document.getElementById('login-form');
 }
@@ -22,18 +21,14 @@ if (loginForm) {
             const data = await res.json();
 
             if (res.ok) {
-                // 1. Guardar token
                 localStorage.setItem("token", data.token);
 
-                // 2. Extraer los datos base del usuario
                 const usuarioCompleto = data.user || {};
 
-                // 🌟 MAGIA: Decodificamos el JWT Payload para sacar el ID real de Mongo
                 try {
                     const payloadBase64 = data.token.split('.')[1];
                     const payloadDecodificado = JSON.parse(atob(payloadBase64));
                     
-                    // Extraemos el id (viene como .id o ._id dentro del token)
                     usuarioCompleto._id = payloadDecodificado.id || payloadDecodificado._id;
                     
                     console.log("¡ID recuperado con éxito del Token!", usuarioCompleto._id);
@@ -41,7 +36,6 @@ if (loginForm) {
                     console.error("No se pudo decodificar el token:", tokenError);
                 }
 
-                // 3. Guardar el objeto reparado con su ID real
                 localStorage.setItem("usuario", JSON.stringify(usuarioCompleto));
 
                 alert("¡Inicio de sesión exitoso! 🎉");
