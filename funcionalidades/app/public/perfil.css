@@ -66,22 +66,30 @@ padding:20px;
 
 }
 
-.btn-volver{
+.btn-volver {
+    background-color: #5cb85c; 
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    left: 325px;
+    font-weight: 500;
+    padding: 0 20px; 
+    border-radius: 4px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    transition: background 0.2s;
+    left: 350px;
+    top: 76px;;
+}
 
-display:inline-block;
+.btn-volver:hover {
+    background-color: #4cae4c;
+}
 
-background:#1A4B84;
-
-color:white;
-
-text-decoration:none;
-
-padding:10px 20px;
-
-border-radius:6px;
-
-margin-bottom:25px;
-
+.btn-nav-cursos-fijo:hover {
+    background-color: #4cae4c;
 }
 
 .perfil-card{
