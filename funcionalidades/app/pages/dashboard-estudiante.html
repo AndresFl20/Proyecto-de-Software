@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>EduTech</title>
+    <title>EduTech - Dashboard</title>
     <link rel="stylesheet" href="/dashboard.css">
 </head>
 
@@ -17,40 +17,30 @@
         <div class="usuario">
 
             <span class="campana" id="campana">
-
                 🔔
-
                 <span class="contador">
                     3
                 </span>
-
             </span>
 
             <div id="panelNotificaciones" class="panel-notificaciones">
-
                 <h3>Notificaciones</h3>
-
                 <div id="listaNotificaciones"></div>
-
                 <div class="ver-todo">
                     Ver todo
                 </div>
-
             </div>
 
-            <div class="datos-usuario" id="perfilUsuario">
-
+            <div class="datos-usuario" id="perfilUsuario" style="cursor: pointer;">
                 <h3 id="nombreUsuario">
                     JUAN PEREZ
                 </h3>
-
                 <span id="rolUsuario">
                     Estudiante
                 </span>
-
             </div>
 
-            <img id="fotoUsuario" class="foto" src="https://i.pravatar.cc/100" alt="perfil">
+            <img id="fotoUsuario" class="foto" src="https://i.pravatar.cc/100" alt="perfil" style="cursor: pointer;">
             <span class="flecha">
                 ▼
             </span>
@@ -60,15 +50,21 @@
     </nav>
 
     <main class="contenido">
-        <h1>Cursos</h1>
+        
+        <header style="margin-bottom: 25px;">
+            <h1 id="saludo-bienvenida" style="color: #1A4B84; font-size: 28px; margin-bottom: 5px;">Cursos</h1>
+            <p id="descripcion-bienvenida" style="color: #718096; font-size: 15px;">Cargando tus datos de acceso...</p>
+        </header>
 
         <div class="filtros">
-            <select>
-                <option>Todos</option>
+            <select id="filtroCategoria">
+                <option value="">Todas las áreas</option>
             </select>
+            
             <input type="text" id="buscarCurso" placeholder="Buscar curso">
+            
             <select id="filtroEstado">
-                <option value="">Todos</option>
+                <option value="">Todos los estados</option>
                 <option value="activo">Activo</option>
                 <option value="finalizado">Finalizado</option>
             </select>

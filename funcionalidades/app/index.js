@@ -27,7 +27,6 @@ app.listen(PORT, () => {
     console.log("Servidor corriendo en puerto", PORT);
 });
 
-
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "pages", "login.html"));
 });
@@ -48,7 +47,6 @@ app.get("/curso-detalle", (req, res) => {
     res.sendFile(path.join(__dirname, "pages", "curso-detalle.html"));
 });
 
-
 app.post("/api/registro", autenticacion.register);
 app.post("/api/login", autenticacion.login);
 
@@ -57,9 +55,11 @@ app.post("/api/cursos", courseController.crearCurso);
 app.get("/api/mis-cursos", courseController.obtenerCursosEstudiante);
 app.post("/api/entregas", courseController.guardarEntrega);
 
-// Se queda solo aquí abajo, organizada junto a las demás APIs
 app.get("/api/cursos/:id", courseController.getCursoDetalle);
 
+app.get("/api/cursos/docente/:idDocente", courseController.obtenerCursosPorDocente);
+app.get("/api/docente/actividades/:idActividad/entregas", courseController.obtenerEntregasPorActividad);
+app.put("/api/entregas/calificar/:idEntrega", courseController.calificarEntrega);
 
 app.get("/test-inscripciones", async (req, res) => {
     const datos = await mongoose.connection.db

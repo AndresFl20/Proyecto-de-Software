@@ -1,4 +1,7 @@
-const loginForm = document.getElementById('login-form');
+// Validamos si ya existe para evitar el error de "already been declared"
+if (typeof loginForm === 'undefined') {
+    var loginForm = document.getElementById('login-form');
+}
 
 if (loginForm) {
     loginForm.addEventListener('submit', async (e) => {
@@ -16,24 +19,36 @@ if (loginForm) {
                 body: JSON.stringify(datos)
             });
 
+            const data = await res.json();
+
             if (res.ok) {
+                // 1. Guardar token
+                localStorage.setItem("token", data.token);
 
-                const data = await res.json();
+                // 2. Extraer los datos base del usuario
+                const usuarioCompleto = data.user || {};
 
-                localStorage.setItem(
-                    "token",
-                    data.token
-                );
+                // 🌟 MAGIA: Decodificamos el JWT Payload para sacar el ID real de Mongo
+                try {
+                    const payloadBase64 = data.token.split('.')[1];
+                    const payloadDecodificado = JSON.parse(atob(payloadBase64));
+                    
+                    // Extraemos el id (viene como .id o ._id dentro del token)
+                    usuarioCompleto._id = payloadDecodificado.id || payloadDecodificado._id;
+                    
+                    console.log("¡ID recuperado con éxito del Token!", usuarioCompleto._id);
+                } catch (tokenError) {
+                    console.error("No se pudo decodificar el token:", tokenError);
+                }
 
-                localStorage.setItem(
-                    "usuario",
-                    JSON.stringify(data.user)
-                );
+                // 3. Guardar el objeto reparado con su ID real
+                localStorage.setItem("usuario", JSON.stringify(usuarioCompleto));
 
-                alert("¡Inicio de sesión exitoso!");
+                alert("¡Inicio de sesión exitoso! 🎉");
 
-                window.location.href =
-                    "/dashboard-estudiante";
+                window.location.href = "/dashboard-estudiante";
+            } else {
+                alert(data.message || "Credenciales incorrectas. Inténtalo de nuevo.");
             }
 
         } catch (error) {
