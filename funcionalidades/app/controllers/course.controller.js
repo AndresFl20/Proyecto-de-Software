@@ -13,10 +13,7 @@ export const upload = multer({
 
 async function obtenerCursos(req, res) {
     try {
-        console.log("MODELO:", Curso.modelName);
-        console.log("COLECCION:", Curso.collection.name);
         const cursos = await Curso.find();
-        console.log("RESULTADO:", cursos);
         res.json(cursos);
     } catch (error) {
         console.error(error);
@@ -115,10 +112,59 @@ async function guardarEntrega(req, res) {
             return res.status(200).json({ message: '¡Tarea entregada con éxito! 🎉' });
 
         } catch (error) {
-            console.error('Error al guardar la entrega en Mongo:', error);
+            console.error(error);
             return res.status(500).json({ message: 'Error interno al guardar la entrega.' });
         }
     });
+}
+
+async function obtenerEntregasPorActividad(req, res) {
+    try {
+        const { idActividad } = req.params;
+        const entregas = await Entrega.find({ actividadId: idActividad });
+        return res.json({ solucionado: true, entregas });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: "Error al cargar las entregas" });
+    }
+}
+
+async function calificarEntrega(req, res) {
+    try {
+        const { idEntrega } = req.params;
+        const { calificacion, observaciones, retroalimentacion } = req.body;
+
+        const entregaActualizada = await Entrega.findByIdAndUpdate(
+            idEntrega,
+            { calificacion, observaciones, retroalimentacion },
+            { new: true }
+        );
+
+        return res.json({ message: "¡Calificación guardada con éxito! 📝", entrega: entregaActualizada });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: "Error al guardar la calificación" });
+    }
+}
+async function obtenerCursosPorDocente(req, res) {
+    try {
+        const { idDocente } = req.params;
+
+        // 🛡️ ESCUDO: Si el ID no viene, es la palabra "undefined" o no es un ObjectId válido de Mongo
+        if (!idDocente || idDocente === "undefined" || !mongoose.Types.ObjectId.isValid(idDocente)) {
+            console.log("⚠️ Se detuvo una petición con un ID de docente inválido:", idDocente);
+            return res.status(400).json({ 
+                solucionado: false, 
+                message: "ID de docente inválido o no proporcionado en la sesión." 
+            });
+        }
+
+        const cursos = await Curso.find({ docente: idDocente });
+        return res.json({ solucionado: true, cursos });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: "Error al cargar las asignaturas del docente" });
+    }
 }
 
 export const method = {
@@ -126,5 +172,8 @@ export const method = {
     crearCurso,
     obtenerCursosEstudiante,
     getCursoDetalle,
-    guardarEntrega
+    guardarEntrega,
+    obtenerEntregasPorActividad,
+    calificarEntrega, // <--- ESTO ES LO QUE FALTABA
+    obtenerCursosPorDocente
 };
