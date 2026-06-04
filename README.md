@@ -215,9 +215,48 @@ Estas tecnologías fueron seleccionadas por su eficiencia en el desarrollo de ap
 
 ## 🏁 Estado del Proyecto  
 
-Proyecto en fase de formulación y planeación (Actividad 2).  
+Proyecto en fase de final (Actividad 6).  
 
 ---
+
+### 🚀 Guía de Instalación y Ejecución Local
+
+Para realizar tareas de mantenimiento, desarrollo de nuevas funcionalidades o ejecución de pruebas unitarias en un entorno local seguro, siga estos pasos:
+
+#### 1. Requisitos Previos
+Antes de iniciar, asegúrese de tener instalado en su sistema:
+• Node.js (Versión 18 LTS o superior)
+• Git
+• MongoDB 
+
+#### 2. Clonar el Repositorio
+Abra su terminal y descargue el código fuente del proyecto desde GitHub:
+bash
+git clone https://github.com/AndresFl20/Proyecto-de-Software.git
+cd Proyecto-de-Software
+
+
+#### 3. Instalar Dependencias
+Dado que el núcleo de la aplicación (backend, frontend y modelos) se encuentra centralizado, navegue a la carpeta contenedora e instale los paquetes de Node.js necesarios:
+bash
+cd funcionalidades
+npm install
+
+
+#### 4. Configurar Variables de Entorno (.env)
+Cree un archivo llamado '.env' dentro de la carpeta 'funcionalidades' y configure las credenciales base para desarrollo local (este archivo está protegido en el .gitignore para evitar fugas de información):
+env
+PORT=4000
+MONGO_URI=mongodb://localhost:27017/edutech_local
+JWT_SECRET=ClaveSecretaDeDesarrollo123
+
+
+#### 5. Ejecutar el Proyecto
+Para iniciar el servidor de Express en modo de desarrollo con recarga automática, ejecute:
+npm run dev
+
+
+Una vez levantado, abra su navegador e ingrese a 'http://localhost:4000' para interactuar con la plataforma de forma local sin afectar el servidor de producción.
 
 ## 🫱🏽‍🫲🏽 Autores  
 
