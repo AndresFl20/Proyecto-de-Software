@@ -257,7 +257,7 @@ npm run dev
 
 
 Una vez levantado, abra su navegador e ingrese a 'http://localhost:4000' para interactuar con la plataforma de forma local sin afectar el servidor de producción.
-
+---
 ## 🫱🏽‍🫲🏽 Autores  
 
 - Andrés Felipe Luengas  
