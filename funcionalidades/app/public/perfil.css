@@ -13,26 +13,30 @@ body {
 }
 
 .navbar {
-    background: #1A4B84;
-    height: 95px;
+    background-color: #1A4B84;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 30px;
-    width: 100%;
+    height: 75px;
+    box-sizing: border-box;
 }
 
 .logo-container {
     display: flex;
-    align-items: flex-end;
-    gap: 20px;
+    align-items: center;
     height: 100%;
-    padding-bottom: 15px;
+    gap: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .logo img {
-    height: 65px;
-    width: auto;
+    height: 55px;
     display: block;
 }
 
@@ -40,16 +44,11 @@ body {
     background-color: #5cb85c;
     color: white;
     text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 0 20px;
+    padding: 8px 20px;
     border-radius: 4px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 38px;
-    transition: background 0.2s;
-    align-self: flex-end;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-block;
 }
 
 .btn-volver:hover {
@@ -57,11 +56,11 @@ body {
 }
 
 .usuario {
-    position: relative;
     display: flex;
     align-items: center;
     gap: 15px;
-    color: white;
+    height: 100%;
+    position: relative;
 }
 
 .campana {

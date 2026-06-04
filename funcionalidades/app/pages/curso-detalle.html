@@ -8,34 +8,42 @@
 </head>
 <body>
 
+    
+
 <nav class="navbar">
-    <div class="logo">
-        <img src="/img/navbar icon.png" alt="logo">
-    </div>
-
-    <a href="/dashboard-estudiante" class="btn-nav-cursos-fijo">Cursos</a>
-
-    <div class="usuario">
-        <span class="campana" id="campana">
-            🔔 
-            <span class="contador">3</span>
-        </span>
-
-        <div id="panelNotificaciones" class="panel-notificaciones">
-            <h3>Notificaciones</h3>
-            <div id="listaNotificaciones"></div>
-            <div class="ver-todo">Ver todo</div>
+        <div class="logo">
+            <img src="/img/navbar icon.png" alt="logo">
         </div>
 
-        <div class="datos-usuario" id="perfilUsuario" style="cursor: pointer;">
-            <h3 id="nombreUsuario">CARGANDO...</h3>
-            <span id="rolUsuario">Estudiante</span>
-        </div>
+        <a href="/dashboard-estudiante" class="btn-nav-cursos-fijo">Cursos</a>
 
-        <img id="fotoUsuario" class="foto" src="/img/default.jpg" alt="perfil" style="cursor: pointer;">
-        <span class="flecha">▼</span>
-    </div>
-</nav>
+        <div class="usuario">
+            <span class="campana" id="campana">
+                🔔 <span class="contador">3</span>
+            </span>
+
+            <div id="panelNotificaciones" class="panel-notificaciones">
+                <h3>Notificaciones</h3>
+                <div id="listaNotificaciones"></div>
+                <div class="ver-todo">Ver todo</div>
+            </div>
+
+            <div class="datos-usuario" id="perfilUsuario">
+                <h3 id="nombreUsuario">CARGANDO...</h3>
+                <span id="rolUsuario">Estudiante</span>
+            </div>
+
+            <img id="fotoUsuario" class="foto" src="/img/default.jpg" alt="perfil">
+            <span class="flecha" id="btnMenuUsuario" style="cursor: pointer;">▼</span>
+
+            <div id="menuUsuario" class="panel-notificaciones" style="display: none;">
+                <div class="opcion-menu" id="cerrarSesion"
+                    style="padding: 12px; cursor: pointer; color: #E53E3E; font-weight: bold; text-align: center;">
+                    Cerrar Sesión
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <div class="layout-curso-detalle">
         <aside class="sidebar-actividades">
@@ -62,5 +70,6 @@
     </div>
 
     <script src="/curso-detalle.js"></script>
+    <script src="/dashboard.js" defer></script>
 </body>
 </html>

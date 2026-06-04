@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 import { method as autenticacion } from "./controllers/autenticacion.js";
-import { method as courseController } from "./controllers/course.controller.js";
+import courseController from "./controllers/course.controller.js";
 
 dotenv.config();
 
@@ -36,11 +36,18 @@ app.post("/api/cursos", courseController.crearCurso);
 app.get("/api/mis-cursos", courseController.obtenerCursosEstudiante);
 app.get("/api/cursos/:id", courseController.getCursoDetalle);
 
+app.get("/api/cursos/docente/:idDocente", courseController.obtenerCursosPorDocente);
+app.get("/api/cursos/estudiante/:idEstudiante", courseController.obtenerCursosEstudiante);
+
 app.post("/api/entregas", courseController.guardarEntrega);
+
+app.get("/api/entregas/descargar/:idEntrega", courseController.descargarArchivo);
 
 app.get("/api/cursos/docente/:idDocente", courseController.obtenerCursosPorDocente);
 app.get("/api/docente/actividades/:idActividad/entregas", courseController.obtenerEntregasPorActividad);
 app.put("/api/entregas/calificar/:idEntrega", courseController.calificarEntrega);
+
+app.get("/api/entregas/verificar/:actividadId/:estudianteId", courseController.verificarEntrega);
 
 app.get("/test-inscripciones", async (req, res) => {
     const datos = await mongoose.connection.db.collection("inscripcions").find({}).toArray();

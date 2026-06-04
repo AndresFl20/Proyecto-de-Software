@@ -7,7 +7,19 @@ const entregaSchema = new mongoose.Schema({
     nombreArchivo: { type: String, required: true },
     mimetype: { type: String, required: true },
     datosArchivo: { type: Buffer, required: true }, 
-    fechaEntrega: { type: Date, default: Date.now }
+    fechaEntrega: { type: Date, default: Date.now },
+
+    calificacion: {
+        type: Number,
+        default: null 
+    },
+    retroalimentacion: {
+        type: String,
+        default: "" 
+    },
+    fechaCalificado: {
+        type: Date
+    }
 });
 
-export default mongoose.model('Entrega', entregaSchema);
+export default mongoose.model('Entrega', entregaSchema, 'entregas');
