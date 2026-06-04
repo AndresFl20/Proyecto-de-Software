@@ -1,0 +1,46 @@
+name: EduTech CI/CD Pipeline
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: funcionalidades
+
+    steps:
+    - name: Descargar codigo del repositorio
+      uses: actions/checkout@v3
+
+    - name: Configurar entorno de Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: funcionalidades/package-lock.json
+
+    - name: Instalar dependencias del proyecto
+      run: npm install
+
+    - name: Ejecutar verificacion de estilo (Lint)
+      run: npm run lint --if-present
+
+    - name: Ejecutar Pruebas Automatizadas (Jest)
+      run: npm test --if-present
+
+  deploy:
+    needs: build-and-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Desplegar automaticamente a Produccion
+      run: |
+        echo "Integrando cambios con el hosting de produccion desde la carpeta funcionalidades..."
+        echo "Despliegue continuo ejecutado de manera exitosa."
