@@ -55,7 +55,7 @@ app.get("/test-inscripciones", async (req, res) => {
     const datos = await mongoose.connection.db.collection("inscripcions").find({}).toArray();
     res.json(datos);
 });
-
+ 
 app.get("/ver-colecciones", async (req, res) => {
     const db = mongoose.connection.db;
     const cursosMayus = await db.collection("Cursos").countDocuments();
