@@ -33,7 +33,6 @@ async function crearCurso(req, res) {
     }
 }
 
-// 👨‍🎓 CORREGIDO Y BLINDADO: Versión final única que castea a ObjectId dinámicamente
 async function obtenerCursosEstudiante(req, res) {
     try {
         const { idEstudiante } = req.params;
@@ -158,7 +157,7 @@ async function guardarEntrega(req, res) {
             const nuevaEntrega = new Entrega({
                 estudianteId: idEstudiante, 
                 cursoId: idCurso,
-                actividadId: idActividad, // 🌟 CORREGIDO: Tenías activityId, cambiado a actividadId para que coincida con tu modelo
+                actividadId: idActividad, 
                 nombreArchivo: req.file.originalname,
                 mimetype: req.file.mimetype,
                 datosArchivo: req.file.buffer 
@@ -181,7 +180,7 @@ async function obtenerEntregasPorActividad(req, res) {
         const entregas = await Entrega.find({ actividadId: idActividad })
             .populate({
                 path: "estudianteId",
-                model: "User", // El modelo de tu archivo usuarioj.js
+                model: "User", 
                 select: "nombre email"
             }) 
             .select("-datosArchivo") 
@@ -196,8 +195,8 @@ async function obtenerEntregasPorActividad(req, res) {
 
 async function calificarEntrega(req, res) {
     try {
-        const { idEntrega } = req.params; // Puede venir el _id de la entrega, o el idActividad
-        const { calificacion, retroalimentacion, estudianteId } = req.body; // Recibimos también el estudianteId por si acaso
+        const { idEntrega } = req.params; 
+        const { calificacion, retroalimentacion, estudianteId } = req.body; 
 
         console.log(`==> Intentando calificar/actualizar entrega. ID recibido: ${idEntrega}`);
 
@@ -220,7 +219,6 @@ async function calificarEntrega(req, res) {
             { new: true } // Devuelve el documento ya modificado
         );
 
-        // Si no se encontró de la forma anterior, intentamos una búsqueda flexible por si los IDs vienen invertidos
         if (!entregaActualizada && estudianteId) {
             entregaActualizada = await Entrega.findOneAndUpdate(
                 { actividadId: idEntrega, estudianteId: estudianteId },
